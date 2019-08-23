@@ -1,0 +1,73 @@
+//Jon Morgan
+// inspired by Madhav
+/*
+#PYRAMID_CHALLENGE
+
+Write a program who permets to create a graphic by indicating the pyramid's size.
+
+For example : 
+Input : s=6
+Output : 
+          /\
+         /__\
+        /____\
+       /______\
+      /________\
+     /__________\
+
+Input : s=0
+Output : null or No pyramid
+*/
+
+#include <iostream>
+
+using namespace std;
+
+//Is called and prints appropriate number of spaces
+void printSpaces(int lineNum){
+    int numTabs = lineNum / 8;
+    int numSpace = lineNum % 8;
+    for(int i = 0; i < numTabs; ++i){
+        cout << '\t';
+    }
+    for(int i = 0; i < numSpace; ++i){
+        cout << ' ';
+    }
+}
+
+void print_char(int& count){
+    int total_ = count * 2;
+    for(int i = 0; i < total_; ++i){
+        cout << "_";
+    }
+    count++;
+}
+//prints through for loop
+void pyramid(int s, int numTime = 1){
+    cout << "\n\t";
+    printSpaces(s);
+    cout << "/\\";
+    if(s > 1){
+        for(int i = s - 1; i > 0; --i){
+            cout << "\n\t";
+            printSpaces(i);
+            cout <<"/";
+            print_char(numTime);
+            cout << "\\";
+        }
+        
+    }
+    
+}
+
+
+int main() {
+    int s;
+    cin >> s;
+    cout << "number of layers is " << s << endl << endl;
+    
+    pyramid(s);
+    
+    
+    
+}
